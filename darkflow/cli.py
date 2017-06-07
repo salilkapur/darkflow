@@ -15,7 +15,7 @@ def cliHandler(args):
     _get_dir([FLAGS.imgdir, FLAGS.binary, FLAGS.backup, 
              os.path.join(FLAGS.imgdir,'out'), FLAGS.summary])
 
-    # fix FLAGS.load to appropriate type
+    # fix FLAGS.load to appropriate type [This is to check if the input file is passed as integer or a path]
     try: FLAGS.load = int(FLAGS.load)
     except: pass
 
