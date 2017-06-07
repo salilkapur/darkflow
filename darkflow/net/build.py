@@ -11,6 +11,7 @@ import os
 
 class TFNet(object):
 
+        # [These are the different types of trainers. We can choose from any]
 	_TRAINER = dict({
 		'rmsprop': tf.train.RMSPropOptimizer,
 		'adadelta': tf.train.AdadeltaOptimizer,

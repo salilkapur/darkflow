@@ -30,6 +30,10 @@ def _batch(self, chunk):
     C, labels = meta['classes'], meta['labels']
 
     # preprocess
+    # jpg - Image file path
+    # w, h -> widht, height of the image
+    # allobj_ -> list of objects in the image
+    # each object -> [name, xn, yn, xx, yx] or [name, xmin, ymin, xmax, ymax]
     jpg = chunk[0]; w, h, allobj_ = chunk[1]
     allobj = deepcopy(allobj_)
     path = os.path.join(self.FLAGS.dataset, jpg)
@@ -94,7 +98,7 @@ def _batch(self, chunk):
 
 def shuffle(self):
     batch = self.FLAGS.batch
-    data = self.parse()
+    data = self.parse() # Data is nothing but dumps.
     size = len(data)
 
     print('Dataset of {} instance(s)'.format(size))

@@ -35,12 +35,12 @@ def _batch(self, chunk):
         cx = centerx / cellx
         cy = centery / celly
         if cx >= W or cy >= H: return None, None
-        obj[3] = float(obj[3]-obj[1]) / w
-        obj[4] = float(obj[4]-obj[2]) / h
+        obj[3] = float(obj[3]-obj[1]) / w # Convert to width
+        obj[4] = float(obj[4]-obj[2]) / h # Convert to height 
         obj[3] = np.sqrt(obj[3])
         obj[4] = np.sqrt(obj[4])
-        obj[1] = cx - np.floor(cx) # centerx
-        obj[2] = cy - np.floor(cy) # centery
+        obj[1] = cx - np.floor(cx) # centerx offset within a box
+        obj[2] = cy - np.floor(cy) # centery offset within a box
         obj += [int(np.floor(cy) * W + np.floor(cx))]
 
     # show(im, allobj, S, w, h, cellx, celly) # unit test

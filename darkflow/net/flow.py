@@ -46,7 +46,8 @@ def train(self):
                 for key in loss_ph }
         feed_dict[self.inp] = x_batch
         feed_dict.update(self.feed)
-
+        
+        #train_op is the optimizer which is selected by the trainer option
         fetches = [self.train_op, loss_op, self.summary_op] 
         fetched = self.sess.run(fetches, feed_dict)
         loss = fetched[1]
