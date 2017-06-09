@@ -81,6 +81,11 @@ def camera(self):
     
     cv2.namedWindow('', 0)
     _, frame = camera.read()
+
+    #Reduce blur in the image
+    img_gb = cv2.GaussianBlur(frame, (5, 5), 0)
+    frame = cv2.addWeighted(frame, 1.5, img_gb, -0.5, 0)
+
     height, width, _ = frame.shape
     cv2.resizeWindow('', width, height)
     
